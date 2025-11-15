@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NutriPlan — eBook com treinos e dietas prontas para transformar seu corpo com praticidade. Receba agora por R$30 via PIX.">
+  <title>NutriPlan - eBook Treino e Dieta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #0a0a0a;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: #121212;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    header .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #00ff88;
+      letter-spacing: 0.5px;
+    }
+
+    header nav a {
+      color: #ddd;
+      text-decoration: none;
+      margin-left: 25px;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    header nav a:hover {
+      color: #00ff88;
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    #sobre {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      gap: 40px;
+      min-height: 80vh;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      #sobre {
+        flex-direction: row;
+        text-align: left;
+      }
+    }
+
+    #sobre h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      color: #00ff88;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    #sobre p {
+      margin-top: 10px;
+      font-size: 1.15rem;
+      color: #ccc;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: 768px) {
+        #sobre p {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
+    #sobre .actions {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    @media (min-width: 768px) {
+        #sobre .actions {
+            justify-content: flex-start;
+        }
+    }
+
+    /* ESTILO BASE DO BOTÃO PRIMÁRIO (AGORA COM DESTAQUE CONSTANTE) */
+    .action-button-link {
+      background: #00ff88;
+      color: #000;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      /* Aplica as propriedades de destaque */
+      box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4); 
+      transform: translateY(-2px); /* Mantém o botão levemente levantado */
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .action-button-link:hover {
+      background: #00cc6a;
+      /* Aumenta a sombra no hover para sutil interação */
+      box-shadow: 0 8px 25px rgba(0, 255, 136, 0.5); 
+    }
+
+    #sobre a {
+      color: #00ff88;
+      text-decoration: none;
+      border: 2px solid #00ff88;
+      padding: 13px 30px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+
+    #sobre a:hover {
+      background: #00ff88;
+      color: #0a0a0a;
+    }
+
+    #sobre img {
+      max-width: 100%;
+      width: 380px;
+      border-radius: 25px;
+      box-shadow: 0 0 40px rgba(0, 255, 136, 0.2);
+    }
+
+    .ratings {
+      margin-top: 25px;
+    }
+
+    .ratings p {
+      font-size: 0.95rem;
+      color: #999;
+    }
+
+    #features {
+      background: #111;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+      padding: 80px 8%;
+    }
+
+    #features h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      color: #00ff88;
+      margin-bottom: 50px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .feature {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 18px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid #252525;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .feature:hover {
+      transform: translateY(-7px);
+      background: #202020;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .feature h3 {
+      margin-bottom: 15px;
+      color: #00ff88;
+      font-size: 1.3rem;
+    }
+    
+    .feature p {
+        color: #bbb;
+    }
+
+    #vantagens {
+      text-align: center;
+      padding: 80px 8%;
+    }
+
+    #vantagens h2 {
+      color: #00ff88;
+      margin-bottom: 15px;
+      font-size: 2rem;
+    }
+
+    #vantagens p {
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+
+    #vantagens form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 450px;
+      margin: 0 auto;
+    }
+
+    #vantagens input,
+    #vantagens textarea {
+      padding: 15px;
+      border: 1px solid #333;
+      border-radius: 10px;
+      outline: none;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    #vantagens input:focus,
+    #vantagens textarea:focus {
+      border-color: #00ff88;
+    }
+
+    /* ESTILO BASE DO BOTÃO DE FORMULÁRIO (AGORA COM DESTAQUE CONSTANTE) */
+    #vantagens .form-button-link {
+      background: #00ff88;
+      color: #000;
+      border: none;
+      padding: 15px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+      /* Aplica as propriedades de destaque */
+      box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+      transform: translateY(-2px); /* Mantém o botão levemente levantado */
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    #vantagens .form-button-link:hover {
+      background: #00cc6a;
+      /* Aumenta a sombra no hover para sutil interação */
+      box-shadow: 0 8px 25px rgba(0, 255, 136, 0.5); 
+    }
+
+    #faq {
+      background: #111;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+      padding: 80px 8%;
+    }
+
+    #faq h2 {
+      text-align: center;
+      color: #00ff88;
+      font-size: 2.2rem;
+      margin-bottom: 50px;
+    }
+
+    .faq-item {
+      max-width: 800px;
+      margin: 0 auto 15px;
+      background: #1a1a1a;
+      padding: 25px;
+      border-radius: 15px;
+      transition: all 0.3s;
+      border-left: 5px solid transparent;
+    }
+
+    .faq-item:hover {
+      background: #202020;
+      border-left: 5px solid #00ff88;
+    }
+
+    .faq-item h3 {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .faq-item p {
+      color: #bbb;
+      font-size: 1rem;
+    }
+
+    footer {
+      background: #121212;
+      text-align: center;
+      padding: 30px 20px;
+      color: #777;
+      font-size: 0.95rem;
+      border-top: 1px solid #222;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">NutriPlan</div>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#features">Conteúdo</a>
+      <a href="#faq">FAQ</a>
+      <a href="#vantagens">Contato</a>
+    </nav>
+  </header>
+
+  <section id="sobre">
+    <div>
+      <h1>Transforme seu corpo com o eBook NutriPlan 💪</h1>
+      <p>
+        O <strong>NutriPlan</strong> é um <strong>eBook completo com treinos e planos alimentares</strong> prontos para você aplicar no seu dia a dia.
+        Tudo feito para quem quer resultados sem depender de acompanhamento individual ou aplicativos complexos.
+      </p>
+      <p style="margin-top:10px;">
+        Receba orientações simples, fichas de treino e cardápios balanceados — tudo em um único arquivo digital, direto no seu celular ou computador.
+      </p>
+      <div class="actions">
+        <a href="https://wa.me/5531973655117?text=Olá!%20Gostaria%20de%20adquirir%20o%20eBook%20NutriPlan.%20Por%20favor,%20me%20envie%20a%20chave%20PIX.%20(Enviarei%20o%20comprovante%20neste%20link%20após%20o%20pagamento.)" 
+           target="_blank" 
+           class="action-button-link">Adquirir eBook (R$30 via PIX)</a>
+        
+        <a href="https://wa.me/5531999999999" target="_blank">Falar no WhatsApp</a>
+      </div>
+      <div class="ratings">
+        <p>⭐ 4.9/5 — mais de 500 leitores satisfeitos</p>
+        <p>📘 Envio imediato após o pagamento</p>
+      </div>
+    </div>
+    <div>
+      <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=400&q=80"
+           alt="eBook NutriPlan - Treino e Dieta">
+    </div>
+  </section>
+
+  <section id="features">
+    <h2>O que você vai encontrar</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>🏋️‍♂️ Treinos prontos</h3>
+        <p>Planilhas de treino elaboradas para diferentes níveis e objetivos.</p>
+      </div>
+      <div class="feature">
+        <h3>🥗 Dietas equilibradas</h3>
+        <p>Cardápios práticos com opções acessíveis e balanceadas para o dia a dia.</p>
+      </div>
+      <div class="feature">
+        <h3>📘 Material digital</h3>
+        <p>Receba o eBook direto no seu celular ou computador em formato PDF.</p>
+      </div>
+      <div class="feature">
+        <h3>💰 Acesso único</h3>
+        <p>Adquira uma vez e tenha o conteúdo completo, sem mensalidades.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>Dúvidas Frequentes (FAQ)</h2>
+
+    <div class="faq-item">
+      <h3>📦 Quando recebo o eBook após o pagamento?</h3>
+      <p>O envio é imediato! Assim que você enviar o comprovante do PIX no WhatsApp e for confirmado, você recebe o eBook diretamente no seu WhatsApp ou e-mail.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>💳 Como faço o pagamento?</h3>
+      <p>Basta clicar em “Comprar agora” e **mandar uma mensagem pelo WhatsApp pedindo a chave PIX**. Depois de pagar R$30, envie o comprovante no mesmo link para receber o eBook.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>📘 O que está incluído no eBook?</h3>
+      <p>Você recebe um guia digital completo com fichas de treino, cardápios alimentares e dicas práticas — tudo organizado para facilitar sua rotina.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>📞 Há acompanhamento personalizado?</h3>
+      <p>Não, o NutriPlan é um eBook digital. Ele oferece orientações e planos prontos para você aplicar de forma autônoma, sem acompanhamento direto — ideal para quem quer praticidade e economia.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>🔄 O pagamento é mensal?</h3>
+      <p>Não. O pagamento é único, e o eBook é seu para sempre. Nenhuma mensalidade ou renovação automática.</p>
+    </div>
+  </section>
+
+  <section id="vantagens">
+    <h2>Quer garantir o seu eBook?</h2>
+    <p>Entre em contato ou compre direto via PIX. Envio imediato após confirmação.</p>
+    <form>
+      <input type="text" placeholder="Seu nome" required>
+      <input type="email" placeholder="Seu e-mail" required>
+      <textarea placeholder="Sua mensagem (opcional)" rows="4"></textarea>
+      <a href="https://wa.me/5531973655117?text=Olá!%20Gostaria%20de%20adquirir%20o%20eBook%20NutriPlan.%20Por%20favor,%20me%20envie%20a%20chave%20PIX.%20(Enviarei%20o%20comprovante%20neste%20link%20após%20o%20pagamento.)" 
+         target="_blank" 
+         class="form-button-link">Comprar agora (R$30)</a>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 NutriPlan — Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Não há JavaScript necessário para botões de compra, pois eles são links <a> diretos.
+  </script>
+</body>
+</html>
